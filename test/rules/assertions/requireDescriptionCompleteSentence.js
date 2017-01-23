@@ -156,6 +156,16 @@ export default {
       `
     },
     {
+      code: `
+          /**
+           * Другой язык.
+           */
+          function quux () {
+
+          }
+      `
+    },
+    {
       // @see https://github.com/gajus/eslint-plugin-jsdoc/issues/10
       code: `
           /**

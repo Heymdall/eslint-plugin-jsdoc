@@ -11,7 +11,7 @@ const isNewLinePrecededByAPeriod = (text) => {
   const lines = text.split('\n');
 
   return !_.some(lines, (line) => {
-    if (_.isBoolean(lastLineEndsSentence) && !lastLineEndsSentence && /^[A-Z]/.test(line)) {
+    if (_.isBoolean(lastLineEndsSentence) && !lastLineEndsSentence && line[0].toLocaleUpperCase() === line[0]) {
       return true;
     }
 
@@ -29,7 +29,7 @@ const validateDescription = (description, report) => {
   const paragraphs = extractParagraphs(description);
 
   return _.some(paragraphs, (paragraph, index) => {
-    if (!/^[A-Z]/.test(paragraph)) {
+    if (paragraph[0].toLocaleUpperCase() !== paragraph[0]) {
       if (index === 0) {
         report('Description must start with an uppercase character.');
       } else {
